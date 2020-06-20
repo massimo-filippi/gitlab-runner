@@ -3,6 +3,7 @@ FROM ubuntu
 LABEL maintainer="Massimo Filippi"
 
 # Install basic stuff
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update --fix-missing \
     && apt-get -y upgrade \
     && apt-get install -y \
@@ -23,7 +24,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo ap
 # Install Node, NPM & Google Lighthouse
 # cache bust so we always get the latest version of LH when building the image.
 ARG CACHEBUST=1
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && apt-get update \
     && apt-get install -y nodejs \
     && npm install -g lighthouse
