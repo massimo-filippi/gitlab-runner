@@ -28,7 +28,7 @@ jobs:
 
       # Build Docker image
       - name: Build Docker image
-        run: docker build -t massimofilippi/gitlab-runner
+        run: docker build -t massimofilippi/gitlab-runner .
 
       # Push Docker image do Docker Hubu
       - name: Push Docker image
