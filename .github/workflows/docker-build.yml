@@ -27,13 +27,12 @@ jobs:
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
       # Build Docker image
-     - name: Build Docker image
+      - name: Build Docker image
         run: docker build -t massimofilippi/gitlab-runner
 
-       # Push Docker image do Docker Hubu
-       - name: Push Docker image
-         run: docker push massimofilippi/gitlab-runner
-
+      # Push Docker image do Docker Hubu
+      - name: Push Docker image
+        run: docker push massimofilippi/gitlab-runner
 
 #      # Slack notifikace o úspěšném buildu
 #      - name: Notify Slack of build status
